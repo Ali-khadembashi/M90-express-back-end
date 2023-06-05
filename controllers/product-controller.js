@@ -90,11 +90,11 @@ const resizeProductImages = async (productId, files) => {
 	if (!images.length) return images;
   
 	// Sort images array based on their names
-	images.sort((a, b) => {
-	  if (a.originalname < b.originalname) return -1;
-	  if (a.originalname > b.originalname) return 1;
-	  return 0;
-	});
+// 	images.sort((a, b) => {
+// 	  if (a.originalname < b.originalname) return -1;
+// 	  if (a.originalname > b.originalname) return 1;
+// 	  return 0;
+// 	});
   
 	const resizedImages = await Promise.all(
 	  images.map(async (image, index) => {
@@ -109,7 +109,7 @@ const resizeProductImages = async (productId, files) => {
 			join(__dirname, `../public/images/products/images/${imageFilename}`)
 		  );
   
-		return `localhost:8000/images/products/images/${imageFilename}`;
+		return `http://localhost:8000/images/products/images/${imageFilename}`;
 	  })
 	);
   
